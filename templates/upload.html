@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Traffic Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🚀 Network Traffic Analyzer</h1>
+        <p>Analyze your network traffic data in seconds with interactive charts and detailed insights.</p>
+    </header>
+
+    <main>
+        <!-- File Upload Section -->
+        <section class="upload-section">
+            <h2>Upload Your File</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <label for="fileInput" class="file-label">📂 Choose File</label>
+                <input type="file" id="fileInput" name="file" accept=".txt,.pcap" hidden required>
+                <button type="submit" id="uploadButton">Analyze</button>
+            </form>
+
+            <!-- Progress Bar -->
+            <div id="progressContainer" style="display: none;">
+                <div class="progress-bar">
+                    <div id="progress" style="width: 0%;"></div>
+                </div>
+                <p id="progressText">Uploading...</p>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" style="display: none;">
+            <h2>Analysis Results</h2>
+            <p id="summary"></p>
+            <div class="chart-container">
+                <canvas id="protocolChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="ipChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="sizeChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Error Section -->
+        <div id="errorContainer" style="display: none;">
+            <p id="errorMessage"></p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Network Traffic Analyzer. All rights reserved.
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
